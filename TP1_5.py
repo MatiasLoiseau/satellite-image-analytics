@@ -35,19 +35,22 @@ for idx, image_path in enumerate(image_paths):
         print(f"Error al cargar la imagen {image_path}.")
         continue
 
-    # Mostrar la imagen original
-    plt.subplot(len(image_paths), len(gamma_values) + 1, idx * (len(gamma_values) + 1) + 1)
-    plt.imshow(image, cmap='gray')
-    plt.title(f"Original (B{idx+1})")
-    plt.axis("off")
+    # Definir el índice central para colocar la imagen original
+    center_index = len(gamma_values) // 2 + 1
 
-    # Aplicar corrección gamma y mostrar los resultados para cada γ
     for i, gamma in enumerate(gamma_values):
         gamma_corrected_img = apply_gamma_correction(image, gamma)
-        plt.subplot(len(image_paths), len(gamma_values) + 1, idx * (len(gamma_values) + 1) + i + 2)
+        col_index = i if i < center_index - 1 else i + 1
+        plt.subplot(len(image_paths), len(gamma_values) + 1, idx * (len(gamma_values) + 1) + col_index + 1)
         plt.imshow(gamma_corrected_img, cmap='gray')
         plt.title(f"γ = {gamma}")
         plt.axis("off")
+
+    # Mostrar la imagen original en el centro
+    plt.subplot(len(image_paths), len(gamma_values) + 1, idx * (len(gamma_values) + 1) + center_index)
+    plt.imshow(image, cmap='gray')
+    plt.title(f"Original (B{idx+1})")
+    plt.axis("off")
 
 plt.tight_layout()
 plt.show()
