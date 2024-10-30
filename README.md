@@ -5,13 +5,14 @@ This repository provides a Python script for performing exploratory data analysi
 ## Requirements
 
 To run the script, install the following Python packages:
-- `opencv-python-headless`
+- `opencv-python`
 - `matplotlib`
 - `numpy`
+- `scikit-learn`
 
 Install these packages using:
 ```bash
-pip install opencv-python-headless matplotlib numpy jupyter
+pip install opencv-python matplotlib numpy jupyter scikit-learn
 ```
 
 ## Setup
