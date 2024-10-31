@@ -12,7 +12,7 @@ To run the script, install the following Python packages:
 
 Install these packages using:
 ```bash
-pip install opencv-python matplotlib numpy jupyter scikit-learn
+pip install opencv-python matplotlib numpy jupyter scikit-learn pillow
 ```
 
 ## Setup
